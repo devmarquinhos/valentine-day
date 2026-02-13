@@ -44,7 +44,7 @@ body {
 
 .letter-window {
     width: 90vw;
-    max-width: 800px;
+    max-width: 900px;
     aspect-ratio: 3/2;
     padding: 20px 20px 0 20px;
 
@@ -173,4 +173,15 @@ p {
 
 body {
     overflow-x: hidden;
+}
+
+/* Efeito de cursor piscando para o texto */
+.typing-effect::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }

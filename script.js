@@ -58,16 +58,42 @@ noBtn.addEventListener("mouseover", () => {
 });
 
 // Clicar sim
-yesBtn.addEventListener("click", () => {
-    title.textContent = "Seu gatinho preto ficou mais feliz!";
-    catImg.src = "assets/cat_dance.gif";
+// Mensagem que será digitada
+const messageText = "Eu sabia que você diria sim! \nEu te amo ❤️";
 
-    document.querySelector(".letter-window").classList.add("final");
-    buttons.style.display = "none";
-    finalText.style.display = "block";
 
-    createHeartShower();
-});
+if (yesBtn) {
+    yesBtn.addEventListener("click", () => {
+        if (catImg) catImg.src = "assets/cat_dance.gif";
+
+        const letterWindow = document.querySelector(".letter-window");
+        if (letterWindow) letterWindow.classList.add("final");
+
+        if (buttons) buttons.style.display = "none";
+
+        createHeartShower();
+
+        setTimeout(() => {
+            if (finalText) {
+                finalText.style.display = "block";
+                finalText.innerHTML = "";
+                typeWriter(messageText, finalText);
+            }
+        }, 1000);
+    });
+}
+
+function typeWriter(text, element, i = 0) {
+    if (i < text.length) {
+        element.innerHTML += text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+        element.classList.add("typing-effect");
+
+        setTimeout(() => typeWriter(text, element, i + 1), 50);
+    } else {
+        element.classList.remove("typing-effect");
+    }
+}
+
 
 // Chuva de corações
 function createHeartShower() {
