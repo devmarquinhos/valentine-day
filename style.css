@@ -1,486 +1,607 @@
+html,
 body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("assets/heart-bg.jpg");
-    font-family: 'Jersey 15', sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("assets/heart-bg.jpg");
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Janelinha */
 #envelope-container {
-    text-align: center;
-    cursor: pointer;
+  text-align: center;
+  cursor: pointer;
+
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 #envelope {
-    width: 200px;
-    animation: pulse 1.5s infinite;
-    cursor: pointer;
+  width: 200px;
+  animation: pulse 1.5s infinite;
+  cursor: pointer;
 }
 
 #letter-container {
-    display: none;
-    position: fixed;
-    inset: 0;
-    justify-content: center;
-    align-items: center;
+  display: none;
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .letter-window {
-    width: 90vw;
-    max-width: 900px;
-    aspect-ratio: 3/2;
-    padding: 20px 20px 0 20px;
+  width: 90vw;
+  max-width: 900px;
+  aspect-ratio: 3/2;
+  padding: 20px 20px 0 20px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-    background-image: url("assets/window.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 12px;
+  background-image: url("assets/window.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 12px;
 
-    gap: 1px;
-    padding-top: 180px;
+  gap: 1px;
+  padding-top: 180px;
 
-    transform: scale(1.2);
-    opacity: 0;
-    transition: transform 0.6s ease, opacity 0.6s ease;
+  transform: scale(1.2);
+  opacity: 0;
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
 }
 
 .letter-window.open {
-    transform: scale(1);
-    opacity: 1;
+  transform: scale(1);
+  opacity: 1;
 }
 
 h1 {
-    font-size: 30px;
-    margin: 0;
+  font-size: 30px;
+  margin: 0;
 }
 
 p {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 .cat {
-    width: 250px;
-    margin: 10px 0;
-    transition: width 0.4s ease;
-
+  width: 250px;
+  margin: 10px 0;
+  transition: width 0.4s ease;
 }
 
 .letter-window.final .cat {
-    width: 180px;
+  width: 180px;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
 }
 
 .no-wrapper {
-    position: relative;
+  position: relative;
 }
 
 .btn {
-    width: 120px;
-    cursor: pointer;
-    user-select: none;
+  width: 120px;
+  cursor: pointer;
+  user-select: none;
 }
 
-.yes-btn, .no-btn {
-    width: 120px;
-    height: auto;
-    display: inline-block;
+.yes-btn,
+.no-btn {
+  width: 120px;
+  height: auto;
+  display: inline-block;
 }
 
 .yes-btn {
-    position: relative;
-    z-index: 2;
-    transform-origin: center center;
-    transition: transform 0.3s ease;
-
+  position: relative;
+  z-index: 2;
+  transform-origin: center center;
+  transition: transform 0.3s ease;
 }
 
 .no-btn {
-    z-index: 1;
-    position: relative;
-    transition: transform 0.15s ease;
-    cursor: default;
+  z-index: 1;
+  position: relative;
+  transition: transform 0.15s ease;
+  cursor: default;
 }
 
-
 .final-text {
-    font-size: 22px;
-    line-height: 1.4;
-    text-align: center;
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: rgba(255, 240, 240, 0.5);
-    border-radius: 12px;
+  font-size: 22px;
+  line-height: 1.4;
+  text-align: center;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgba(255, 240, 240, 0.5);
+  border-radius: 12px;
 }
 
 .envelope-text {
-    padding: 8px;
-    background-color: rgb(255, 240, 220);
-    border-radius: 50px;
+  padding: 8px;
+  background-color: rgb(255, 240, 220);
+  border-radius: 50px;
 }
 
 /* Coração caindo */
 .heart-confetti {
-    position: fixed;
-    top: -10vh;
-    z-index: 9999;
-    font-size: 24px;
-    user-select: none;
-    pointer-events: none;
-    opacity: 0;
-    animation: fall linear forwards;
+  position: fixed;
+  top: -10vh;
+  z-index: 9999;
+  font-size: 24px;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+  animation: fall linear forwards;
 }
 
 @keyframes fall {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-    }
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .typing-effect::after {
-    content: '|';
-    animation: blink 0.7s infinite;
+  content: "|";
+  animation: blink 0.7s infinite;
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Notas em coreano */
 .korean-note {
-    position: absolute;
-    font-family: 'Nanum Pen Script', cursive;
-    font-size: 28px;
-    color: #d63384;
-    background-color: rgba(255, 255, 220, 0.8);
-    padding: 5px 15px;
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    box-shadow: 2px 3px 5px rgba(0,0,0,0.1);
-    z-index: 0;
-    pointer-events: none;
-    user-select: none;
-    white-space: nowrap;
-    opacity: 0;
-    animation: fade-in-note 1s forwards;
+  position: absolute;
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 28px;
+  color: #d63384;
+  background-color: rgba(255, 255, 220, 0.8);
+  padding: 5px 15px;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  opacity: 0;
+  animation: fade-in-note 1s forwards;
 }
 
 @keyframes fade-in-note {
-    to { opacity: 1; transform: rotate(var(--rotation)) scale(1); }
+  to {
+    opacity: 1;
+    transform: rotate(var(--rotation)) scale(1);
+  }
 }
 
 /* Fundo + popup */
 .ticket-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
-    z-index: 10000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
 .ticket-overlay.visible {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* Container ticket */
 .ticket-popup {
-    display: flex;
-    background: white;
-    width: 90%;
-    max-width: 600px;
-    border-radius: 12px;
+  display: flex;
+  background: white;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 12px;
 
-    box-shadow: none;
-    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
-    
-    transform: scale(0.5);
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden;
+  box-shadow: none;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 
-    --r: 10px;  /* Tamanho do furo */
-    --p: 142px; /* Posição  */
+  transform: scale(0.5);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
 
-    --mask: 
-        radial-gradient(circle at right var(--p) top 0, transparent var(--r), black calc(var(--r) + 0.5px)) top,
-        radial-gradient(circle at right var(--p) bottom 0, transparent var(--r), black calc(var(--r) + 0.5px)) bottom;
+  --r: 10px; /* Tamanho do furo */
+  --p: 142px; /* Posição  */
 
-    -webkit-mask: var(--mask);
-    mask: var(--mask);
+  --mask:
+    radial-gradient(
+        circle at right var(--p) top 0,
+        transparent var(--r),
+        black calc(var(--r) + 0.5px)
+      )
+      top,
+    radial-gradient(
+        circle at right var(--p) bottom 0,
+        transparent var(--r),
+        black calc(var(--r) + 0.5px)
+      )
+      bottom;
 
-    -webkit-mask-size: 100% 51%;
-    mask-size: 100% 51%;
-    
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+
+  -webkit-mask-size: 100% 51%;
+  mask-size: 100% 51%;
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
 .ticket-overlay.visible .ticket-popup {
-    transform: scale(1);
+  transform: scale(1);
 }
 
 /* Lado das informações do ticket */
 .ticket-left {
-    flex: 1;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-right: 2px dashed #ccc;
-    position: relative;
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-right: 2px dashed #ccc;
+  position: relative;
 }
 
 /* Furo do ticket */
-.ticket-left::after, .ticket-left::before {
-    content: '';
-    position: absolute;
-    right: -10px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+.ticket-left::after,
+.ticket-left::before {
+  content: "";
+  position: absolute;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 }
 
-.ticket-left::after { top: -10px; background-color: rgba(0,0,0,0.6); } 
-.ticket-left::before { bottom: -10px; background-color: rgba(0,0,0,0.6); }
+.ticket-left::after {
+  top: -10px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.ticket-left::before {
+  bottom: -10px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
 
 /* Conteúdo */
 .ticket-header {
-    font-size: 14px;
-    text-transform: uppercase;
-    color: #888;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
 }
 
 .ticket-body {
-    font-size: 32px;
-    font-weight: 800;
-    color: #d32f2f;
-    margin: 10px 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: #d32f2f;
+  margin: 10px 0;
 }
 
 .ticket-stamp {
-    font-family: 'Nanum Pen Script', cursive;
-    color: #25D366;
-    font-size: 24px;
-    border: 3px solid #25D366;
-    padding: 5px 20px;
-    border-radius: 8px;
-    margin-top: 15px;
+  font-family: "Nanum Pen Script", cursive;
+  color: #25d366;
+  font-size: 24px;
+  border: 3px solid #25d366;
+  padding: 5px 20px;
+  border-radius: 8px;
+  margin-top: 15px;
 }
 
 /* Lacre */
 .ticket-right {
-    width: 120px; 
-    background-color: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 10px;
-    border-left: 2px dashed #ccc;
-    position: relative;
+  width: 120px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  border-left: 2px dashed #ccc;
+  position: relative;
 }
 
 .share-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .share-btn {
-    background: none;
-    border: 2px solid #ff4d4d;
-    color: #ff4d4d;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 20px;
-    transition: all 0.2s;
-    margin-bottom: 8px;
-    background-color: white;
+  background: none;
+  border: 2px solid #ff4d4d;
+  color: #ff4d4d;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.2s;
+  margin-bottom: 8px;
+  background-color: white;
 }
 
 .share-btn:hover {
-    background-color: #ff4d4d;
-    color: white;
-    transform: scale(1.1) rotate(15deg);
-    box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3);
+  background-color: #ff4d4d;
+  color: white;
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3);
 }
 
 .share-label {
-    font-size: 10px;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
+  font-size: 10px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
 }
 
 /* Data Info */
 .ticket-date-stub {
-    font-family: 'Jersey 15', monospace;
-    font-size: 18px;
-    color: #555;
-    border-top: 1px solid #ddd;
-    padding-top: 5px;
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
+  font-family: "Jersey 15", monospace;
+  font-size: 18px;
+  color: #555;
+  border-top: 1px solid #ddd;
+  padding-top: 5px;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
 }
 
 #wa-share-btn {
-    border-color: #25D366;
-    color: #25D366;
+  border-color: #25d366;
+  color: #25d366;
 }
 #wa-share-btn:hover {
-    background-color: #25D366;
-    color: white;
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+  background-color: #25d366;
+  color: white;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
 }
 
-/* --- RESPONSIVIDADE (MOBILE - CORREÇÃO FINAL) --- */
-/* --- RESPONSIVIDADE (MOBILE - CORREÇÃO DE PROPORÇÃO) --- */
+/* Responvidade */
 @media (max-width: 768px) {
+  .letter-window {
+    aspect-ratio: 3 / 2;
 
-    .letter-window {
-        /* 1. Trava a proporção da imagem original (3 largura por 2 altura) 
-           Isso impede que o fundo estique ou esprema. */
-        aspect-ratio: 3 / 2; 
-        
-        /* 2. Define a largura baseada na tela */
-        width: 95vw; 
-        max-width: 380px; /* Limite para não ficar gigante */
-        height: auto; /* A altura será calculada automaticamente pelo aspect-ratio */
-        min-height: unset; /* Removemos altura mínima forçada */
+    width: 95vw;
+    max-width: 380px;
+    height: auto;
+    min-height: unset;
 
-        /* 3. Padding Proporcional (%)
-           Usamos % para que o espaçamento diminua se a janela diminuir */
-        padding-top: 20%; /* Espaço para a barra de título (LOVE) */
-        padding-bottom: 5%;
-        padding-left: 5%;
-        padding-right: 5%;
+    padding-top: 20%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
 
-        background-size: 100% 100%;
-        background-position: center;
+    background-size: 100% 100%;
+    background-position: center;
 
-        /* Layout Compacto */
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* Centraliza verticalmente */
-        align-items: center;
-        gap: 4%; /* Espaçamento relativo entre elementos */
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+  }
 
-    /* Título: Usa 'vw' para diminuir conforme a tela estreita */
+  h1 {
+    font-size: 5vw;
+    line-height: 1;
+    margin: 0;
+    width: 100%;
+  }
+
+  /* tablets */
+  @media (min-width: 400px) {
     h1 {
-        font-size: 5vw; /* Aprox. 18px em celulares comuns */
-        line-height: 1;
-        margin: 0;
-        width: 100%;
+      font-size: 20px;
     }
-    
-    /* Trava o tamanho máximo do título em telas maiores (tablets) */
-    @media (min-width: 400px) { h1 { font-size: 20px; } }
+  }
 
-    /* Gato: Altura controlada para não empurrar os botões */
-    .cat {
-        height: 35%; /* Ocupa no máximo 35% da altura útil da janela */
-        width: auto; /* Largura ajusta automático */
-        object-fit: contain;
-        margin: 0;
-    }
-    
-    .letter-window.final .cat {
-        height: 30%; /* Gato dançando um pouco menor */
+  .cat {
+    height: 35%;
+    width: auto;
+    object-fit: contain;
+    margin: 0;
+  }
+
+  .letter-window.final .cat {
+    height: 30%;
+  }
+
+  .buttons {
+    gap: 15px;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn {
+    width: 20vw;
+    max-width: 75px;
+  }
+
+  .final-text {
+    font-size: 14px;
+    margin-top: 5px;
+    line-height: 1.1;
+  }
+  .korean-note {
+    font-size: 14px;
+    padding: 2px 5px;
+  }
+
+  /* ticket */
+  .ticket-popup {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    max-width: 320px;
+    height: auto;
+    transform: scale(0.9);
+
+    --r: 15px;
+    --h: 160px;
+
+    --mask-image:
+      radial-gradient(
+        circle at left 0 bottom var(--h),
+        transparent var(--r),
+        black calc(var(--r) + 0.5px)
+      ),
+      radial-gradient(
+        circle at right 0 bottom var(--h),
+        transparent var(--r),
+        black calc(var(--r) + 0.5px)
+      );
+
+    -webkit-mask-image: var(--mask-image);
+    mask-image: var(--mask-image);
+    -webkit-mask-size: 51% 100%;
+    mask-size: 51% 100%;
+
+    -webkit-mask-position: left, right;
+    mask-position: left, right;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+
+  /* Principal */
+  .ticket-left {
+    border-right: none;
+    border-bottom: 2px dashed #ccc;
+    padding: 20px;
+    padding-bottom: 30px;
+  }
+
+  .ticket-left::before,
+  .ticket-left::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .ticket-body {
+    font-size: 22px;
+  }
+
+  .ticket-date-stub {
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 0 5px;
+  }
+
+  /* Lacre */
+  .ticket-right {
+    width: 100%;
+    height: 160px;
+    border-left: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+
+    /* Botão do zap */
+    .share-wrapper {
+      margin-bottom: 10px;
     }
 
-    /* Botões: Bem menores */
-    .buttons {
-        gap: 15px;
-        margin: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .btn {
-        width: 20vw; /* Botão ocupa 20% da largura da tela */
-        max-width: 75px; /* Não passa de 75px */
+    /* Data */
+    .ticket-date-stub:last-child {
+      border-top: 1px solid #ddd;
+      margin-top: 5px;
+      padding-top: 5px;
+      width: 80%;
     }
 
-    /* Ajustes finos nos textos extras */
-    .final-text { font-size: 14px; margin-top: 5px; line-height: 1.1; }
-    .korean-note { font-size: 14px; padding: 2px 5px; }
-
-    /* --- TICKET VERTICAL (Mantido) --- */
-    .ticket-popup {
-        width: 85%;
-        max-width: 300px;
-        flex-direction: column;
-        --r: 10px; --p: 140px;
-        --mask: 
-            radial-gradient(circle at left 0 bottom var(--p), transparent var(--r), black calc(var(--r) + 0.5px)) left,
-            radial-gradient(circle at right 0 bottom var(--p), transparent var(--r), black calc(var(--r) + 0.5px)) right;
-        -webkit-mask: var(--mask); mask: var(--mask);
-        -webkit-mask-size: 51% 100%; mask-size: 51% 100%;
+    .envelope-text {
+      font-size: 16px !important;
+      padding: 5px 15px;
+      border-radius: 20px;
+      margin-top: 10px;
     }
-    .ticket-left { border-right: none; border-bottom: 2px dashed #ccc; padding: 15px; }
-    .ticket-body { font-size: 22px; }
-    .ticket-right { width: 100%; height: 140px; border-left: none; }
+
+    #envelope {
+      width: 150px;
+    }
+  }
 }
