@@ -23,7 +23,7 @@ const phrases = [
     "Faço qualquer coisa!",
     "Essa música me lembra a gente...",
     "Quero casar com você!",
-    "Prometo ser o melhor gato preto da sua vida!"
+    "Serei seu gatinho preto!"
 ];
 
 // Lista de elogios
@@ -91,9 +91,12 @@ envelope.addEventListener("click", () => {
 });
 
 // Mover o botão pela pág
-noBtn.addEventListener("mouseover", () => {
-    const min = 200;
-    const max = 400;
+// Função para mover o botão (Reutilizável)
+function moveNoButton() {
+    // Reduzi a distância no mobile para o botão não sair da tela
+    const isMobile = window.innerWidth < 768;
+    const min = isMobile ? 50 : 200; 
+    const max = isMobile ? 150 : 400;
 
     const distance = Math.random() * (max - min) + min;
     const angle = Math.random() * Math.PI * 4;
@@ -106,6 +109,20 @@ noBtn.addEventListener("mouseover", () => {
 
     const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
     title.textContent = randomPhrase;
+}
+
+// Evento para Desktop (Mouse)
+noBtn.addEventListener("mouseover", moveNoButton);
+
+// Evento para Mobile (Toque)
+noBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // Impede o clique real
+    moveNoButton();
+});
+// Opcional: Clique também, para garantir
+noBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    moveNoButton();
 });
 
 // Clicar sim
@@ -190,7 +207,7 @@ function showTicket() {
                 <div class="ticket-left">
                     <div class="ticket-header">Vale Compromisso</div>
                     <div class="ticket-body">Namorados, noivos e eternos.</div>
-                    <p class="ticket-date-stub">De alguém especial para alguém mais especial ainda. Com esse vale, você encontrará a felicidade e parceria por toda a eternidade. Como promessa, como pessoa, ao longo do tempo, viajaremos juntos por mais de dez anos e acabaremos juntos após criarmos um campo de flores usando magia.</p>
+                    <p class="ticket-date-stub">De alguém especial para alguém mais especial ainda. Com esse vale, você encontrará a felicidade e parceria por toda a eternidade. Como promessa, como pessoa, ao longo do tempo, viajaremos juntos por mais de dez anos e acabaremos juntos após criarmos um campo de flores utilizando da magia do amor.</p>
                     <div class="ticket-stamp">❤</div>
                 </div>
 

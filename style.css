@@ -393,3 +393,94 @@ body {
     color: white;
     box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
 }
+
+/* --- RESPONSIVIDADE (MOBILE - CORREÇÃO FINAL) --- */
+/* --- RESPONSIVIDADE (MOBILE - CORREÇÃO DE PROPORÇÃO) --- */
+@media (max-width: 768px) {
+
+    .letter-window {
+        /* 1. Trava a proporção da imagem original (3 largura por 2 altura) 
+           Isso impede que o fundo estique ou esprema. */
+        aspect-ratio: 3 / 2; 
+        
+        /* 2. Define a largura baseada na tela */
+        width: 95vw; 
+        max-width: 380px; /* Limite para não ficar gigante */
+        height: auto; /* A altura será calculada automaticamente pelo aspect-ratio */
+        min-height: unset; /* Removemos altura mínima forçada */
+
+        /* 3. Padding Proporcional (%)
+           Usamos % para que o espaçamento diminua se a janela diminuir */
+        padding-top: 20%; /* Espaço para a barra de título (LOVE) */
+        padding-bottom: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+
+        background-size: 100% 100%;
+        background-position: center;
+
+        /* Layout Compacto */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centraliza verticalmente */
+        align-items: center;
+        gap: 4%; /* Espaçamento relativo entre elementos */
+    }
+
+    /* Título: Usa 'vw' para diminuir conforme a tela estreita */
+    h1 {
+        font-size: 5vw; /* Aprox. 18px em celulares comuns */
+        line-height: 1;
+        margin: 0;
+        width: 100%;
+    }
+    
+    /* Trava o tamanho máximo do título em telas maiores (tablets) */
+    @media (min-width: 400px) { h1 { font-size: 20px; } }
+
+    /* Gato: Altura controlada para não empurrar os botões */
+    .cat {
+        height: 35%; /* Ocupa no máximo 35% da altura útil da janela */
+        width: auto; /* Largura ajusta automático */
+        object-fit: contain;
+        margin: 0;
+    }
+    
+    .letter-window.final .cat {
+        height: 30%; /* Gato dançando um pouco menor */
+    }
+
+    /* Botões: Bem menores */
+    .buttons {
+        gap: 15px;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .btn {
+        width: 20vw; /* Botão ocupa 20% da largura da tela */
+        max-width: 75px; /* Não passa de 75px */
+    }
+
+    /* Ajustes finos nos textos extras */
+    .final-text { font-size: 14px; margin-top: 5px; line-height: 1.1; }
+    .korean-note { font-size: 14px; padding: 2px 5px; }
+
+    /* --- TICKET VERTICAL (Mantido) --- */
+    .ticket-popup {
+        width: 85%;
+        max-width: 300px;
+        flex-direction: column;
+        --r: 10px; --p: 140px;
+        --mask: 
+            radial-gradient(circle at left 0 bottom var(--p), transparent var(--r), black calc(var(--r) + 0.5px)) left,
+            radial-gradient(circle at right 0 bottom var(--p), transparent var(--r), black calc(var(--r) + 0.5px)) right;
+        -webkit-mask: var(--mask); mask: var(--mask);
+        -webkit-mask-size: 51% 100%; mask-size: 51% 100%;
+    }
+    .ticket-left { border-right: none; border-bottom: 2px dashed #ccc; padding: 15px; }
+    .ticket-body { font-size: 22px; }
+    .ticket-right { width: 100%; height: 140px; border-left: none; }
+}
