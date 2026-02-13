@@ -383,3 +383,13 @@ body {
     text-align: center;
     margin-top: 10px;
 }
+
+#wa-share-btn {
+    border-color: #25D366;
+    color: #25D366;
+}
+#wa-share-btn:hover {
+    background-color: #25D366;
+    color: white;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
