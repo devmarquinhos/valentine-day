@@ -245,5 +245,5 @@ function showTicket() {
         window.open(link, "_blank");
       });
     }
-  }, 100);
+  }, 2000);
 }

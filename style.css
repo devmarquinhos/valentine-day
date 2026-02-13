@@ -445,8 +445,8 @@ body {
     height: auto;
     min-height: unset;
 
-    padding-top: 20%;
-    padding-bottom: 5%;
+    padding-top: 35%;
+    padding-bottom: 2%;
     padding-left: 5%;
     padding-right: 5%;
 
@@ -455,16 +455,29 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 4%;
+    gap: 5px;
   }
 
   h1 {
-    font-size: 5vw;
-    line-height: 1;
+    font-size: 18px;
+    line-height: 1.1;
     margin: 0;
     width: 100%;
+    padding: 0 10px;
+  }
+
+  .envelope-text {
+    font-size: 12px !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+    margin-top: 15px;
+    width: auto;
+  }
+
+  #envelope {
+    width: 50px;
   }
 
   /* tablets */
@@ -475,7 +488,7 @@ body {
   }
 
   .cat {
-    height: 35%;
+    height: 25%;
     width: auto;
     object-fit: contain;
     margin: 0;
@@ -495,14 +508,16 @@ body {
 
   .btn {
     width: 20vw;
-    max-width: 75px;
+    max-width: 70px;
   }
 
   .final-text {
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 5px;
     line-height: 1.1;
+    padding: 5px 10px;
   }
+
   .korean-note {
     font-size: 14px;
     padding: 2px 5px;
@@ -592,17 +607,6 @@ body {
       margin-top: 5px;
       padding-top: 5px;
       width: 80%;
-    }
-
-    .envelope-text {
-      font-size: 16px !important;
-      padding: 5px 15px;
-      border-radius: 20px;
-      margin-top: 10px;
-    }
-
-    #envelope {
-      width: 150px;
     }
   }
 }
