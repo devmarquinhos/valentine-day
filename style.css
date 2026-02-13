@@ -51,7 +51,7 @@ body {
     align-items: center;
     text-align: center;
 
-    background-image: url("window.png");
+    background-image: url("assets/window.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -137,4 +137,10 @@ p {
     padding: 10px 20px;
     background-color: rgba(255, 240, 240, 0.5);
     border-radius: 12px;
+}
+
+.envelope-text {
+    padding: 8px;
+    background-color: rgb(255, 240, 220);
+    border-radius: 50px;
 }
