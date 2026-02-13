@@ -142,6 +142,7 @@ function typeWriter(text, element, i = 0) {
         setTimeout(() => typeWriter(text, element, i + 1), 50);
     } else {
         element.classList.remove("typing-effect");
+        showTicket()
     }
 }
 
@@ -171,4 +172,27 @@ function createHeartShower() {
             }, duration * 1000);
         }, i * 100);
     }
+}
+
+// Ticket
+function showTicket() {
+    const ticketHTML = `
+        <div class="ticket-overlay" id="ticket-modal">
+            <div class="ticket-popup">
+                <div class="ticket-header">-- Ticket de confirmação --</div>
+                <div class="ticket-body">Passe de Namorada</div>
+                <div class="ticket-footer">Válido apenas com seu amor e por toda eternidade</div>
+                <div class="ticket-stamp">❤</div>
+            </div>
+        </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', ticketHTML);
+
+    setTimeout(() => {
+        const modal = document.getElementById("ticket-modal");
+        if(modal) {
+            modal.classList.add("visible");
+        }
+    }, 1500);
 }
