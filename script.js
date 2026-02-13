@@ -139,7 +139,7 @@ function typeWriter(text, element, i = 0) {
         element.innerHTML += text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
         element.classList.add("typing-effect");
 
-        setTimeout(() => typeWriter(text, element, i + 1), 50);
+        setTimeout(() => typeWriter(text, element, i + 1), 2);
     } else {
         element.classList.remove("typing-effect");
         showTicket()
@@ -176,13 +176,39 @@ function createHeartShower() {
 
 // Ticket
 function showTicket() {
+    const today = new Date();
+    const dateString = today.toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+
     const ticketHTML = `
         <div class="ticket-overlay" id="ticket-modal">
             <div class="ticket-popup">
-                <div class="ticket-header">-- Ticket de confirmação --</div>
-                <div class="ticket-body">Passe de Namorada</div>
-                <div class="ticket-footer">Válido apenas com seu amor e por toda eternidade</div>
-                <div class="ticket-stamp">❤</div>
+                
+                <div class="ticket-left">
+                    <div class="ticket-header">Vale Compromisso</div>
+                    <div class="ticket-body">Namorados, noivos e eternos.</div>
+                    <p class="ticket-date-stub">De alguém especial para alguém mais especial ainda. Com esse vale, você encontrará a felicidade e parceria por toda a eternidade. Como promessa, como pessoa, ao longo do tempo, viajaremos juntos por mais de dez anos e acabaremos juntos após criarmos um campo de flores usando magia.</p>
+                    <div class="ticket-stamp">❤</div>
+                </div>
+
+                <div class="ticket-right">
+                    
+                    <div class="share-wrapper">
+                        <div class="share-btn">
+                            🔗
+                        </div>
+                        <span class="share-label">Compartilhe</span>
+                    </div>
+                    
+                    <div class="ticket-date-stub">
+                        ${dateString}
+                    </div>
+
+                </div>
+
             </div>
         </div>
     `;
@@ -191,8 +217,6 @@ function showTicket() {
 
     setTimeout(() => {
         const modal = document.getElementById("ticket-modal");
-        if(modal) {
-            modal.classList.add("visible");
-        }
-    }, 1500);
+        if (modal) modal.classList.add("visible");
+    }, 100);
 }
