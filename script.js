@@ -26,6 +26,57 @@ const phrases = [
     "Prometo ser o melhor gato preto da sua vida!"
 ];
 
+// Lista de elogios
+const koreanPhrases = [
+    "너무 예뻐",             // Muito linda (Neomu yeppeo)
+    "사랑해 ❤️",            // Te amo (Saranghae)
+    "귀여워",               // Fofa (Gwiyeowo)
+    "내 사랑",             // Meu amor (Nae sarang)
+    "보고 싶어",           // Sinto sua falta (Bogo sipeo)
+    "넌 나의 천사",        // Você é meu anjo (Neon naui cheonsa)
+    "빛나는 별 ✨",       // Estrela brilhante (Binnaneun byeol)
+    "심쿵!",             // Batida de coração forte/Crush (Simkung)
+    "보라해 💜",          // I purple you
+    "뽀뽀 💋",           // Beijinho
+    "안아줘",             // Me abrace
+    "영원히",             // Para sempre
+    "자기야",             // Querida/Honey
+    "설레다"              // Coração vibrando
+];
+
+function addKoreanNotes() {
+    const container = document.body;
+    
+    koreanPhrases.forEach((text, index) => {
+        const note = document.createElement("div");
+        note.classList.add("korean-note");
+        note.innerText = text;
+        
+        let randomX, randomY;
+        const isLeft = Math.random() > 0.5;
+        
+        if (isLeft) {
+            randomX = Math.random() * 30; 
+        } else {
+            randomX = 70 + Math.random() * 25;
+        }
+        
+        randomY = Math.random() * 90;
+
+        note.style.left = randomX + "%";
+        note.style.top = randomY + "%";
+
+        const rotation = (Math.random() * 40) - 20;
+        note.style.setProperty('--rotation', rotation + 'deg');
+
+        note.style.animationDelay = (index * 0.2) + "s";
+
+        container.appendChild(note);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", addKoreanNotes);
+
 // Click Envelope
 envelope.addEventListener("click", () => {
     envelope.style.display = "none";

@@ -175,7 +175,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Efeito de cursor piscando para o texto */
 .typing-effect::after {
     content: '|';
     animation: blink 0.7s infinite;
@@ -184,4 +183,26 @@ body {
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* --- Notas Coreanas (Estilo Post-it/Manuscrito) --- */
+.korean-note {
+    position: absolute;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 28px;
+    color: #d63384;
+    background-color: rgba(255, 255, 220, 0.8);
+    padding: 5px 15px;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    box-shadow: 2px 3px 5px rgba(0,0,0,0.1);
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    opacity: 0;
+    animation: fade-in-note 1s forwards;
+}
+
+@keyframes fade-in-note {
+    to { opacity: 1; transform: rotate(var(--rotation)) scale(1); }
 }
